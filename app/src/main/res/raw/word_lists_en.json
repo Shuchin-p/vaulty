@@ -1,0 +1,45 @@
+{  "articles": ["the", "a", "an"],
+  "adjectives": [
+    "quiet", "swift", "ancient", "golden", "silent", "dark", "bright", "cold", "warm", "deep",
+    "shallow", "calm", "strong", "weak", "old", "new", "great", "small", "big", "tiny", "bold",
+    "clever", "eager", "fancy", "gentle", "happy", "kind", "proud", "rare", "sly", "smart",
+    "tall", "brave", "genuine", "holy", "jolly", "keen", "mild", "odd", "polite", "rough",
+    "sudden", "tough", "vivid", "weary", "zesty", "fragile", "gloomy", "humid", "jolly",
+    "keen", "mirthful", "noxious", "peaceful", "quick", "relentless", "sturdy", "ugly", "vast",
+    "wary", "youthful", "zealous", "astute", "blooming", "crystal", "dawn", "elegant",
+    "fierce", "glistening", "hushed", "invincible", "jagged", "knotty", "luminous", "mysterious"
+  ],
+  "nouns": [
+    "river", "mountain", "bridge", "key", "shadow", "valley", "forest", "desert", "ocean", "lake",
+    "sea", "waterfall", "canyon", "cliff", "hill", "meadow", "field", "island", "cave", "tower",
+    "castle", "fort", "hall", "chamber", "house", "home", "mansion", "cottage", "gate", "wall",
+    "path", "road", "trail", "sword", "shield", "staff", "wand", "ring", "coin", "gem",
+    "ruby", "sapphire", "diamond", "pearl", "shell", "bone", "wood", "tree", "bark", "leaf",
+    "flower", "bloom", "petal", "seed", "fruit", "apple", "cherry", "plum", "peach", "berry",
+    "grape", "rose", "lily", "violet", "daisy", "sunflower", "star", "moon", "sun", "sky",
+    "cloud", "storm", "rain", "snow", "wind", "breeze", "gust", "fog", "mist", "haze"
+  ],
+  "verbs": [
+    "flows", "rests", "guards", "watches", "sleeps", "rises", "falls", "moves", "stands", "sits",
+    "eats", "drinks", "laughs", "cries", "shouts", "whispers", "sings", "dances", "runs", "walks",
+    "hides", "seeks", "finds", "loves", "hates", "fears", "trusts", "believes", "knows", "sees",
+    "hears", "touches", "feels", "tastes", "smells", "remembers", "forgets", "creates", "destroys",
+    "builds", "breaks", "mends", "heals", "grows", "changes", "shifts", "turns", "faces", "points",
+    "opens", "closes", "locks", "unlocks", "hides", "reveals", "protects", "awakens", "settles",
+    "glows", "echoes", "crumbles", "shimmers", "whispers", "reverberates"
+  ],
+  "prepositions": [
+    "beneath", "above", "within", "beyond", "across", "through", "during", "before", "after",
+    "toward", "around", "between", "among", "beside", "against", "along", "under", "over", "into",
+    "onto", "from", "of", "with", "by", "for", "to", "in", "on", "at", "near", "far", "here", "there"
+  ],
+  "adverbs": [
+    "silently", "swiftly", "eternally", "quietly", "gently", "frequently", "occasionally", "always", "never",
+    "rarely", "often", "today", "yesterday", "tomorrow", "now", "soon", "later", "fast", "slow",
+    "hard", "soft", "bright", "light", "dark", "cold", "warm", "true", "false", "clear", "faint",
+    "loud", "near", "far", "deep", "wide", "high", "low", "strong", "weak", "whole", "part",
+    "half", "full", "empty", "complete", "begin", "end", "start", "stop", "open", "close",
+    "locked", "unlocked", "brightly", "dimly", "faintly", "clearly", "deeply", "sharply", "softly",
+    "gently", "roughly", "smoothly", "quickly", "carefully", "hurriedly", "reluctantly", "proudly"
+  ]
+}

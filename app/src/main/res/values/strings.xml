@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vaultaire</string>
+
+    <!-- Backup settings -->
+    <string name="backup_settings_title">Encrypted Cloud Backup</string>
+    <string name="backup_settings_subtitle">Backup to Google Drive</string>
+    <string name="backup_enabled_summary_on">Last backup: %s • 24h schedule • Wi-Fi only</string>
+    <string name="backup_enabled_summary_off">Backups disabled. Tap to enable.</string>
+    <string name="backup_last_backup_never">Never</string>
+    <string name="backup_last_backup_today">Today</string>
+    <string name="backup_last_backup_yesterday">Yesterday</string>
+    <string name="backup_last_backup_days_ago">%d days ago</string>
+
+    <!-- Backup indicator states -->
+    <string name="backup_indicator_not_backed_up">Not backed up</string>
+    <string name="backup_indicator_backed_up">Backed up</string>
+    <string name="backup_indicator_in_progress">Backing up…</string>
+    <string name="backup_indicator_error">Backup error</string>
+
+    <!-- Recovery phrase -->
+    <string name="recovery_phrase_title">Recovery Phrase</string>
+    <string name="recovery_phrase_subtitle">Your 12-word recovery key</string>
+    <string name="recovery_phrase_show">Show Phrase</string>
+    <string name="recovery_phrase_hide">Hide Phrase</string>
+    <string name="recovery_phrase_copy">Copy</string>
+    <string name="recovery_phrase_copied">Phrase copied to clipboard</string>
+    <string name="recovery_phrase_warning">Write this down and store it securely. Anyone with this phrase can restore your vault.</string>
+
+    <!-- Restore flow -->
+    <string name="restore_title">Restore from Backup</string>
+    <string name="restore_subtitle">Enter your recovery phrase</string>
+    <string name="restore_hint">Hint: Find it on the card you saved during setup</string>
+    <string name="restore_button">Restore</string>
+    <string name="restore_cancel">Cancel</string>
+    <string name="restore_validating">Validating recovery phrase…</string>
+    <string name="restore_downloading">Downloading backup from cloud…</string>
+    <string name="restore_decrypting">Decrypting backup…</string>
+    <string name="restore_restoring">Restoring vault to device…</string>
+    <string name="restore_success">Vault restored!</string>
+    <string name="restore_success_message">Your vault is ready. Your pattern unlocks your device.</string>
+    <string name="restore_continue">Continue</string>
+    <string name="restore_error_incorrect_phrase">Incorrect phrase. Please check your recovery card.</string>
+    <string name="restore_error_no_backup">No backup found for this account.</string>
+    <string name="restore_error_generic">Restore failed: %s</string>
+    <string name="restore_estimated_time">Estimated time: %s</string>
+    <string name="restore_may_take_minutes">This may take a few minutes</string>
+
+    <!-- Backup errors -->
+    <string name="backup_error_quota_exceeded">Google Drive storage full. Free up space to continue backups.</string>
+    <string name="backup_error_network">Network error. Will retry when connected.</string>
+    <string name="backup_error_auth">Authentication failed. Please sign in again.</string>
+    <string name="backup_error_generic">Backup failed: %s</string>
+
+    <!-- Duress mode -->
+    <string name="duress_mode_activated">Duress mode activated</string>
+</resources>

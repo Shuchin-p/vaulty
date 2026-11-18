@@ -1,0 +1,1498 @@
+{
+  "$schema": "https://tokens.studio/schema.json",
+  "$themes": [
+    "light",
+    "dark"
+  ],
+  "$metadata": {
+    "tokenSetOrder": [
+      "color",
+      "spacing",
+      "typography",
+      "shape",
+      "shadow",
+      "motion",
+      "componentStates"
+    ],
+    "description": "Vaultaire Android Design Tokens - Material 3 Expressive + Vault Security Aesthetic",
+    "version": "1.0.0"
+  },
+  "color": {
+    "primary": {
+      "light": {
+        "$value": "#4A6FA5",
+        "$type": "color",
+        "$description": "Primary brand color - deep trustworthy blue"
+      },
+      "dark": {
+        "$value": "#7BA3D9",
+        "$type": "color",
+        "$description": "Primary brand color - lighter blue for dark mode"
+      }
+    },
+    "onPrimary": {
+      "light": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#121212",
+        "$type": "color"
+      }
+    },
+    "primaryContainer": {
+      "light": {
+        "$value": "#D6E4F0",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#2D4A6B",
+        "$type": "color"
+      }
+    },
+    "onPrimaryContainer": {
+      "light": {
+        "$value": "#1A2B42",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#D6E4F0",
+        "$type": "color"
+      }
+    },
+    "secondary": {
+      "light": {
+        "$value": "#5C7A5C",
+        "$type": "color",
+        "$description": "Secondary - muted sage green for success states"
+      },
+      "dark": {
+        "$value": "#8FB88F",
+        "$type": "color"
+      }
+    },
+    "onSecondary": {
+      "light": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#121212",
+        "$type": "color"
+      }
+    },
+    "secondaryContainer": {
+      "light": {
+        "$value": "#DCEBDC",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#3A4F3A",
+        "$type": "color"
+      }
+    },
+    "tertiary": {
+      "light": {
+        "$value": "#7D5A7D",
+        "$type": "color",
+        "$description": "Tertiary - muted purple for Pro features"
+      },
+      "dark": {
+        "$value": "#C5A3C5",
+        "$type": "color"
+      }
+    },
+    "surface": {
+      "light": {
+        "$value": "#F8F9FA",
+        "$type": "color",
+        "$description": "Main surface - near white"
+      },
+      "dark": {
+        "$value": "#1A1C1E",
+        "$type": "color",
+        "$description": "Main surface - deep charcoal (vault aesthetic)"
+      }
+    },
+    "surfaceDim": {
+      "light": {
+        "$value": "#DADBDD",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#121212",
+        "$type": "color"
+      }
+    },
+    "surfaceBright": {
+      "light": {
+        "$value": "#F8F9FA",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#292B2E",
+        "$type": "color"
+      }
+    },
+    "surfaceContainerLow": {
+      "light": {
+        "$value": "#F0F1F3",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#1E2022",
+        "$type": "color"
+      }
+    },
+    "surfaceContainer": {
+      "light": {
+        "$value": "#E8E9EC",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#222427",
+        "$type": "color"
+      }
+    },
+    "surfaceContainerHigh": {
+      "light": {
+        "$value": "#E0E1E4",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#2A2D30",
+        "$type": "color"
+      }
+    },
+    "surfaceContainerHighest": {
+      "light": {
+        "$value": "#D8D9DD",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#323539",
+        "$type": "color"
+      }
+    },
+    "onSurface": {
+      "light": {
+        "$value": "#1A1C1E",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#E6E6E6",
+        "$type": "color"
+      }
+    },
+    "onSurfaceVariant": {
+      "light": {
+        "$value": "#44474B",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#C4C6CB",
+        "$type": "color"
+      }
+    },
+    "outline": {
+      "light": {
+        "$value": "#74777B",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#8E9093",
+        "$type": "color"
+      }
+    },
+    "outlineVariant": {
+      "light": {
+        "$value": "#C4C6CC",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#44474B",
+        "$type": "color"
+      }
+    },
+    "inverseSurface": {
+      "light": {
+        "$value": "#2D3033",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#F0F1F3",
+        "$type": "color"
+      }
+    },
+    "inverseOnSurface": {
+      "light": {
+        "$value": "#F0F1F3",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#2D3033",
+        "$type": "color"
+      }
+    },
+    "inversePrimary": {
+      "light": {
+        "$value": "#7BA3D9",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#4A6FA5",
+        "$type": "color"
+      }
+    },
+    "error": {
+      "light": {
+        "$value": "#BA1A1A",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#FFB4AB",
+        "$type": "color"
+      }
+    },
+    "onError": {
+      "light": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#690005",
+        "$type": "color"
+      }
+    },
+    "errorContainer": {
+      "light": {
+        "$value": "#FFDAD6",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#93000A",
+        "$type": "color"
+      }
+    },
+    "onErrorContainer": {
+      "light": {
+        "$value": "#410002",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#FFDAD6",
+        "$type": "color"
+      }
+    },
+    "success": {
+      "light": {
+        "$value": "#2E7D32",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#81C784",
+        "$type": "color"
+      }
+    },
+    "onSuccess": {
+      "light": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#1B5E20",
+        "$type": "color"
+      }
+    },
+    "successContainer": {
+      "light": {
+        "$value": "#C8E6C9",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#1B5E20",
+        "$type": "color"
+      }
+    },
+    "onSuccessContainer": {
+      "light": {
+        "$value": "#1B5E20",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#C8E6C9",
+        "$type": "color"
+      }
+    },
+    "warning": {
+      "light": {
+        "$value": "#F57F17",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#FFB74D",
+        "$type": "color"
+      }
+    },
+    "onWarning": {
+      "light": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#4E342E",
+        "$type": "color"
+      }
+    },
+    "warningContainer": {
+      "light": {
+        "$value": "#FFE0B2",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#4E342E",
+        "$type": "color"
+      }
+    },
+    "onWarningContainer": {
+      "light": {
+        "$value": "#4E342E",
+        "$type": "color"
+      },
+      "dark": {
+        "$value": "#FFE0B2",
+        "$type": "color"
+      }
+    },
+    "patternGrid": {
+      "dotIdle": {
+        "light": {
+          "$value": "#74777B",
+          "$type": "color",
+          "$description": "Pattern dot - unselected state"
+        },
+        "dark": {
+          "$value": "#8E9093",
+          "$type": "color"
+        }
+      },
+      "dotHover": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color",
+          "$description": "Pattern dot - finger hovering/approaching"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "dotActive": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color",
+          "$description": "Pattern dot - selected/connected"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "dotConnected": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color",
+          "$description": "Pattern dot - part of completed pattern"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "dotError": {
+        "light": {
+          "$value": "#BA1A1A",
+          "$type": "color",
+          "$description": "Pattern dot - wrong pattern entered"
+        },
+        "dark": {
+          "$value": "#FFB4AB",
+          "$type": "color"
+        }
+      },
+      "dotSuccess": {
+        "light": {
+          "$value": "#2E7D32",
+          "$type": "color",
+          "$description": "Pattern dot - correct pattern (brief flash)"
+        },
+        "dark": {
+          "$value": "#81C784",
+          "$type": "color"
+        }
+      },
+      "lineActive": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color",
+          "$description": "Pattern line - currently drawing"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "lineConnected": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color",
+          "$description": "Pattern line - confirmed connection"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "lineError": {
+        "light": {
+          "$value": "#BA1A1A",
+          "$type": "color",
+          "$description": "Pattern line - wrong pattern"
+        },
+        "dark": {
+          "$value": "#FFB4AB",
+          "$type": "color"
+        }
+      },
+      "gridBackground": {
+        "light": {
+          "$value": "#F8F9FA",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#1A1C1E",
+          "$type": "color"
+        }
+      }
+    },
+    "cameraOverlay": {
+      "toolbarBackground": {
+        "light": {
+          "$value": "rgba(26, 28, 30, 0.85)",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "rgba(26, 28, 30, 0.9)",
+          "$type": "color"
+        }
+      },
+      "controlBackground": {
+        "light": {
+          "$value": "rgba(26, 28, 30, 0.7)",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "rgba(26, 28, 30, 0.8)",
+          "$type": "color"
+        }
+      },
+      "controlIcon": {
+        "light": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "controlIconDisabled": {
+        "light": {
+          "$value": "rgba(255, 255, 255, 0.4)",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "rgba(255, 255, 255, 0.4)",
+          "$type": "color"
+        }
+      },
+      "shutterButton": {
+        "light": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#FFFFFF",
+          "$type": "color"
+        }
+      },
+      "shutterButtonInner": {
+        "light": {
+          "$value": "#1A1C1E",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#1A1C1E",
+          "$type": "color"
+        }
+      },
+      "recordButton": {
+        "light": {
+          "$value": "#BA1A1A",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#FF5252",
+          "$type": "color"
+        }
+      },
+      "recordButtonActive": {
+        "light": {
+          "$value": "#FF5252",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#FF5252",
+          "$type": "color"
+        }
+      },
+      "focusIndicator": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "reviewKeepButton": {
+        "light": {
+          "$value": "#4A6FA5",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#7BA3D9",
+          "$type": "color"
+        }
+      },
+      "reviewRetakeButton": {
+        "light": {
+          "$value": "#74777B",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#8E9093",
+          "$type": "color"
+        }
+      },
+      "audioOffBadge": {
+        "light": {
+          "$value": "#BA1A1A",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#FFB4AB",
+          "$type": "color"
+        }
+      }
+    },
+    "disguise": {
+      "calculator": {
+        "$value": "#333333",
+        "$type": "color",
+        "$description": "Calculator disguise icon background"
+      },
+      "printer": {
+        "$value": "#0066CC",
+        "$type": "color",
+        "$description": "Printer disguise icon background"
+      },
+      "units": {
+        "$value": "#009966",
+        "$type": "color",
+        "$description": "Units converter disguise icon background"
+      },
+      "deviceInfo": {
+        "$value": "#663399",
+        "$type": "color",
+        "$description": "Device info disguise icon background"
+      },
+      "level": {
+        "$value": "#CC6600",
+        "$type": "color",
+        "$description": "Level tool disguise icon background"
+      },
+      "soundMeter": {
+        "$value": "#CC0066",
+        "$type": "color",
+        "$description": "Sound meter disguise icon background"
+      },
+      "network": {
+        "$value": "#006699",
+        "$type": "color",
+        "$description": "Network tool disguise icon background"
+      },
+      "default": {
+        "$value": "#4A6FA5",
+        "$type": "color",
+        "$description": "Default Vaultaire icon background"
+      }
+    },
+    "pro": {
+      "accent": {
+        "light": {
+          "$value": "#7D5A7D",
+          "$type": "color",
+          "$description": "Pro feature accent - purple"
+        },
+        "dark": {
+          "$value": "#C5A3C5",
+          "$type": "color"
+        }
+      },
+      "accentContainer": {
+        "light": {
+          "$value": "#EDE0ED",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#3A2D3A",
+          "$type": "color"
+        }
+      },
+      "badge": {
+        "light": {
+          "$value": "#7D5A7D",
+          "$type": "color"
+        },
+        "dark": {
+          "$value": "#C5A3C5",
+          "$type": "color"
+        }
+      }
+    }
+  },
+  "spacing": {
+    "xs": {
+      "$value": 4,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "sm": {
+      "$value": 8,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "md": {
+      "$value": 16,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "lg": {
+      "$value": 24,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "xl": {
+      "$value": 32,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "xxl": {
+      "$value": 48,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "patternGridCell": {
+      "$value": 56,
+      "$type": "dimension",
+      "$unit": "dp",
+      "$description": "5x5 grid cell size including dot and spacing"
+    },
+    "patternGridTotal": {
+      "$value": 280,
+      "$type": "dimension",
+      "$unit": "dp",
+      "$description": "Total 5x5 grid size (5 * 56dp)"
+    },
+    "shutterButton": {
+      "$value": 72,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "shutterButtonInner": {
+      "$value": 56,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "controlButton": {
+      "$value": 48,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "fab": {
+      "$value": 56,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "iconSizeSmall": {
+      "$value": 16,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "iconSizeMedium": {
+      "$value": 24,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "iconSizeLarge": {
+      "$value": 32,
+      "$type": "dimension",
+      "$unit": "dp"
+    }
+  },
+  "typography": {
+    "displayLarge": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "57sp",
+        "lineHeight": "64sp",
+        "letterSpacing": "-0.25sp"
+      },
+      "$type": "typography"
+    },
+    "displayMedium": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "45sp",
+        "lineHeight": "52sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "displaySmall": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "36sp",
+        "lineHeight": "44sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "headlineLarge": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "32sp",
+        "lineHeight": "40sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "headlineMedium": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "28sp",
+        "lineHeight": "36sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "headlineSmall": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "24sp",
+        "lineHeight": "32sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "titleLarge": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "22sp",
+        "lineHeight": "28sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography"
+    },
+    "titleMedium": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "16sp",
+        "lineHeight": "24sp",
+        "letterSpacing": "0.15sp"
+      },
+      "$type": "typography"
+    },
+    "titleSmall": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "14sp",
+        "lineHeight": "20sp",
+        "letterSpacing": "0.1sp"
+      },
+      "$type": "typography"
+    },
+    "bodyLarge": {
+      "$value": {
+        "fontFamily": "Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "16sp",
+        "lineHeight": "24sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography"
+    },
+    "bodyMedium": {
+      "$value": {
+        "fontFamily": "Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "14sp",
+        "lineHeight": "20sp",
+        "letterSpacing": "0.25sp"
+      },
+      "$type": "typography"
+    },
+    "bodySmall": {
+      "$value": {
+        "fontFamily": "Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "12sp",
+        "lineHeight": "16sp",
+        "letterSpacing": "0.4sp"
+      },
+      "$type": "typography"
+    },
+    "labelLarge": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "14sp",
+        "lineHeight": "20sp",
+        "letterSpacing": "0.1sp"
+      },
+      "$type": "typography"
+    },
+    "labelMedium": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "12sp",
+        "lineHeight": "16sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography"
+    },
+    "labelSmall": {
+      "$value": {
+        "fontFamily": "Google Sans, Roboto, sans-serif",
+        "fontWeight": 500,
+        "fontSize": "11sp",
+        "lineHeight": "16sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography"
+    },
+    "patternNumber": {
+      "$value": {
+        "fontFamily": "Roboto Mono, monospace",
+        "fontWeight": 500,
+        "fontSize": "14sp",
+        "lineHeight": "20sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography",
+      "$description": "Used for pattern dot position numbers in accessibility mode"
+    },
+    "recoveryPhrase": {
+      "$value": {
+        "fontFamily": "Roboto Mono, monospace",
+        "fontWeight": 400,
+        "fontSize": "24sp",
+        "lineHeight": "36sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography",
+      "$description": "Large monospace for recovery phrase display - high readability"
+    },
+    "recoveryPhraseWord": {
+      "$value": {
+        "fontFamily": "Roboto Mono, monospace",
+        "fontWeight": 500,
+        "fontSize": "24sp",
+        "lineHeight": "36sp",
+        "letterSpacing": "0sp"
+      },
+      "$type": "typography",
+      "$description": "Individual word in recovery phrase grid"
+    },
+    "secretPhraseInput": {
+      "$value": {
+        "fontFamily": "Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "18sp",
+        "lineHeight": "28sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography",
+      "$description": "Word input field for secret/custom phrase entry"
+    },
+    "cameraTimer": {
+      "$value": {
+        "fontFamily": "Roboto Mono, monospace",
+        "fontWeight": 500,
+        "fontSize": "16sp",
+        "lineHeight": "24sp",
+        "letterSpacing": "0.5sp"
+      },
+      "$type": "typography",
+      "$description": "Recording timer display"
+    },
+    "fileMetadata": {
+      "$value": {
+        "fontFamily": "Roboto, sans-serif",
+        "fontWeight": 400,
+        "fontSize": "12sp",
+        "lineHeight": "16sp",
+        "letterSpacing": "0.4sp"
+      },
+      "$type": "typography",
+      "$description": "File size, date, type in grid view"
+    }
+  },
+  "shape": {
+    "cornerNone": {
+      "$value": 0,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerXS": {
+      "$value": 4,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerSM": {
+      "$value": 8,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerMD": {
+      "$value": 12,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerLG": {
+      "$value": 16,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerXL": {
+      "$value": 28,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "cornerFull": {
+      "$value": 9999,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "patternDot": {
+      "$value": 9999,
+      "$type": "dimension",
+      "$unit": "dp",
+      "$description": "Fully rounded pattern dots"
+    },
+    "shutterButton": {
+      "$value": 9999,
+      "$type": "dimension",
+      "$unit": "dp",
+      "$description": "Fully rounded shutter button"
+    },
+    "card": {
+      "$value": 16,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "dialog": {
+      "$value": 28,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "bottomSheet": {
+      "$value": 28,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "textField": {
+      "$value": 12,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "chip": {
+      "$value": 9999,
+      "$type": "dimension",
+      "$unit": "dp"
+    },
+    "button": {
+      "$value": 100,
+      "$type": "dimension",
+      "$unit": "dp"
+    }
+  },
+  "shadow": {
+    "elevation0": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 0,
+        "blur": 0,
+        "spread": 0,
+        "color": "rgba(0, 0, 0, 0)"
+      },
+      "$type": "boxShadow"
+    },
+    "elevation1": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 1,
+        "blur": 2,
+        "spread": 0,
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      "$type": "boxShadow"
+    },
+    "elevation2": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 2,
+        "blur": 4,
+        "spread": -1,
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      "$type": "boxShadow"
+    },
+    "elevation3": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 4,
+        "blur": 8,
+        "spread": -2,
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      "$type": "boxShadow"
+    },
+    "elevation4": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 6,
+        "blur": 12,
+        "spread": -4,
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      "$type": "boxShadow"
+    },
+    "elevation5": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 8,
+        "blur": 16,
+        "spread": -6,
+        "color": "rgba(0, 0, 0, 0.3)"
+      },
+      "$type": "boxShadow"
+    },
+    "patternGrid": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 4,
+        "blur": 12,
+        "spread": -4,
+        "color": "rgba(0, 0, 0, 0.4)"
+      },
+      "$type": "boxShadow",
+      "$description": "Shadow behind pattern grid container"
+    },
+    "shutterButton": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 4,
+        "blur": 12,
+        "spread": -4,
+        "color": "rgba(0, 0, 0, 0.5)"
+      },
+      "$type": "boxShadow"
+    },
+    "cameraControl": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 2,
+        "blur": 8,
+        "spread": -2,
+        "color": "rgba(0, 0, 0, 0.6)"
+      },
+      "$type": "boxShadow"
+    },
+    "fab": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 3,
+        "blur": 6,
+        "spread": -2,
+        "color": "rgba(0, 0, 0, 0.4)"
+      },
+      "$type": "boxShadow"
+    },
+    "dialog": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": 8,
+        "blur": 24,
+        "spread": -8,
+        "color": "rgba(0, 0, 0, 0.5)"
+      },
+      "$type": "boxShadow"
+    },
+    "bottomSheet": {
+      "$value": {
+        "offsetX": 0,
+        "offsetY": -4,
+        "blur": 16,
+        "spread": -4,
+        "color": "rgba(0, 0, 0, 0.4)"
+      },
+      "$type": "boxShadow"
+    }
+  },
+  "motion": {
+    "durationShort1": {
+      "$value": 50,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationShort2": {
+      "$value": 100,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationShort3": {
+      "$value": 150,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationShort4": {
+      "$value": 200,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationMedium1": {
+      "$value": 250,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationMedium2": {
+      "$value": 300,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationMedium3": {
+      "$value": 350,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationMedium4": {
+      "$value": 400,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationLong1": {
+      "$value": 450,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationLong2": {
+      "$value": 500,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationLong3": {
+      "$value": 550,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "durationLong4": {
+      "$value": 600,
+      "$type": "duration",
+      "$unit": "ms"
+    },
+    "easingStandard": {
+      "$value": [0.2, 0, 0, 1],
+      "$type": "cubicBezier"
+    },
+    "easingEmphasized": {
+      "$value": [0.2, 0, 0, 1],
+      "$type": "cubicBezier"
+    },
+    "easingLegacy": {
+      "$value": [0.4, 0, 1, 1],
+      "$type": "cubicBezier"
+    },
+    "easingPatternDraw": {
+      "$value": [0.25, 0.1, 0.25, 1],
+      "$type": "cubicBezier",
+      "$description": "Smooth line drawing animation"
+    },
+    "easingVaultUnlock": {
+      "$value": [0.05, 0.7, 0.1, 1],
+      "$type": "cubicBezier",
+      "$description": "Vault transition - quick start, gentle settle"
+    },
+    "easingCameraReview": {
+      "$value": [0.16, 1, 0.3, 1],
+      "$type": "cubicBezier",
+      "$description": "Camera review slide up"
+    },
+    "easingDuressWipe": {
+      "$value": [0.4, 0, 1, 1],
+      "$type": "cubicBezier",
+      "$description": "Duress wipe - linear, no bounce"
+    }
+  },
+  "componentStates": {
+    "button": {
+      "enabled": {
+        "backgroundColor": "{color.primary}",
+        "contentColor": "{color.onPrimary}",
+        "elevation": "{shadow.elevation1}"
+      },
+      "disabled": {
+        "backgroundColor": "{color.outlineVariant}",
+        "contentColor": "{color.onSurfaceVariant}",
+        "elevation": "{shadow.elevation0}"
+      },
+      "pressed": {
+        "backgroundColor": "{color.primaryContainer}",
+        "contentColor": "{color.onPrimaryContainer}",
+        "elevation": "{shadow.elevation0}"
+      },
+      "hovered": {
+        "backgroundColor": "{color.primaryContainer}",
+        "contentColor": "{color.onPrimaryContainer}",
+        "elevation": "{shadow.elevation2}"
+      },
+      "focused": {
+        "backgroundColor": "{color.primary}",
+        "contentColor": "{color.onPrimary}",
+        "elevation": "{shadow.elevation3}",
+        "outlineWidth": 2,
+        "outlineColor": "{color.primary}"
+      }
+    },
+    "patternDot": {
+      "idle": {
+        "fillColor": "{color.patternGrid.dotIdle}",
+        "strokeColor": "transparent",
+        "strokeWidth": 0,
+        "scale": 1.0
+      },
+      "hover": {
+        "fillColor": "{color.patternGrid.dotHover}",
+        "strokeColor": "{color.patternGrid.dotHover}",
+        "strokeWidth": 2,
+        "scale": 1.15
+      },
+      "active": {
+        "fillColor": "{color.patternGrid.dotActive}",
+        "strokeColor": "{color.patternGrid.dotActive}",
+        "strokeWidth": 3,
+        "scale": 1.2
+      },
+      "connected": {
+        "fillColor": "{color.patternGrid.dotConnected}",
+        "strokeColor": "{color.patternGrid.dotConnected}",
+        "strokeWidth": 3,
+        "scale": 1.1
+      },
+      "error": {
+        "fillColor": "{color.patternGrid.dotError}",
+        "strokeColor": "{color.patternGrid.dotError}",
+        "strokeWidth": 3,
+        "scale": 1.1
+      },
+      "success": {
+        "fillColor": "{color.patternGrid.dotSuccess}",
+        "strokeColor": "{color.patternGrid.dotSuccess}",
+        "strokeWidth": 3,
+        "scale": 1.2
+      }
+    },
+    "patternLine": {
+      "drawing": {
+        "strokeColor": "{color.patternGrid.lineActive}",
+        "strokeWidth": 3,
+        "cap": "round",
+        "animation": "dash-offset"
+      },
+      "connected": {
+        "strokeColor": "{color.patternGrid.lineConnected}",
+        "strokeWidth": 3,
+        "cap": "round"
+      },
+      "error": {
+        "strokeColor": "{color.patternGrid.lineError}",
+        "strokeWidth": 3,
+        "cap": "round"
+      }
+    },
+    "card": {
+      "default": {
+        "backgroundColor": "{color.surfaceContainer}",
+        "elevation": "{shadow.elevation1}",
+        "outlineColor": "transparent",
+        "outlineWidth": 0
+      },
+      "hovered": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "elevation": "{shadow.elevation2}"
+      },
+      "pressed": {
+        "backgroundColor": "{color.surfaceContainerHighest}",
+        "elevation": "{shadow.elevation0}"
+      },
+      "selected": {
+        "backgroundColor": "{color.primaryContainer}",
+        "elevation": "{shadow.elevation2}",
+        "outlineColor": "{color.primary}",
+        "outlineWidth": 2
+      },
+      "disabled": {
+        "backgroundColor": "{color.surfaceContainerLow}",
+        "elevation": "{shadow.elevation0}",
+        "opacity": 0.5
+      }
+    },
+    "textField": {
+      "idle": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "labelColor": "{color.onSurfaceVariant}",
+        "placeholderColor": "{color.onSurfaceVariant}",
+        "outlineColor": "{color.outlineVariant}",
+        "outlineWidth": 1
+      },
+      "focused": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "labelColor": "{color.primary}",
+        "placeholderColor": "{color.onSurfaceVariant}",
+        "outlineColor": "{color.primary}",
+        "outlineWidth": 2
+      },
+      "error": {
+        "backgroundColor": "{color.errorContainer}",
+        "labelColor": "{color.error}",
+        "placeholderColor": "{color.onErrorContainer}",
+        "outlineColor": "{color.error}",
+        "outlineWidth": 2
+      },
+      "disabled": {
+        "backgroundColor": "{color.surfaceContainerLow}",
+        "labelColor": "{color.onSurfaceVariant}",
+        "placeholderColor": "{color.onSurfaceVariant}",
+        "outlineColor": "{color.outlineVariant}",
+        "outlineWidth": 1,
+        "opacity": 0.5
+      },
+      "filled": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "labelColor": "{color.onSurface}",
+        "placeholderColor": "{color.onSurfaceVariant}",
+        "outlineColor": "{color.outline}",
+        "outlineWidth": 1
+      }
+    },
+    "iconButton": {
+      "enabled": {
+        "backgroundColor": "transparent",
+        "contentColor": "{color.onSurface}",
+        "elevation": "{shadow.elevation0}"
+      },
+      "disabled": {
+        "backgroundColor": "transparent",
+        "contentColor": "{color.onSurfaceVariant}",
+        "opacity": 0.38
+      },
+      "pressed": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "contentColor": "{color.onSurface}",
+        "elevation": "{shadow.elevation0}"
+      },
+      "hovered": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "contentColor": "{color.onSurface}",
+        "elevation": "{shadow.elevation1}"
+      },
+      "focused": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "contentColor": "{color.onSurface}",
+        "elevation": "{shadow.elevation2}",
+        "outlineWidth": 2,
+        "outlineColor": "{color.primary}"
+      }
+    },
+    "chip": {
+      "enabled": {
+        "backgroundColor": "{color.surfaceContainerHigh}",
+        "contentColor": "{color.onSurface}",
+        "outlineColor": "{color.outlineVariant}",
+        "outlineWidth": 1,
+        "elevation": "{shadow.elevation0}"
+      },
+      "selected": {
+        "backgroundColor": "{color.primaryContainer}",
+        "contentColor": "{color.onPrimaryContainer}",
+        "outlineColor": "{color.primary}",
+        "outlineWidth": 1
+      },
+      "disabled": {
+        "backgroundColor": "{color.surfaceContainerLow}",
+        "contentColor": "{color.onSurfaceVariant}",
+        "opacity": 0.5
+      },
+      "pressed": {
+        "backgroundColor": "{color.surfaceContainerHighest}",
+        "contentColor": "{color.onSurface}"
+      }
+    },
+    "dialog": {
+      "default": {
+        "backgroundColor": "{color.surfaceContainer}",
+        "elevation": "{shadow.dialog}",
+        "shape": "{shape.dialog}"
+      },
+      "alert": {
+        "backgroundColor": "{color.errorContainer}",
+        "elevation": "{shadow.dialog}",
+        "shape": "{shape.dialog}"
+      }
+    },
+    "bottomSheet": {
+      "default": {
+        "backgroundColor": "{color.surfaceContainer}",
+        "elevation": "{shadow.bottomSheet}",
+        "shape": "{shape.bottomSheet}"
+      },
+      "modal": {
+        "backgroundColor": "{color.surfaceContainer}",
+        "elevation": "{shadow.dialog}",
+        "shape": "{shape.bottomSheet}"
+      }
+    }
+  }
+}

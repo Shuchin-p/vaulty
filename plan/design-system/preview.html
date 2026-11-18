@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaultaire Aurora — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#17151f; --ink-800:#24212e; --ink-700:#3a3647; --ink-600:#4a4557;
+    --ink-500:#6b6578; --ink-400:#8c8799; --ink-300:#ada8b8; --ink-200:#cfcbd8; --ink-100:#e7e4ee;
+    --canvas:#c9c3e6; --canvas-top:#d9d4f0; --canvas-bottom:#bcb4dd;
+    --glass:rgba(255,255,255,.62); --glass-raised:rgba(255,255,255,.8); --glass-subtle:rgba(255,255,255,.42);
+    --solid:#f7f5fb; --white:#fff; --border:rgba(255,255,255,.62); --hairline:rgba(23,21,31,.08);
+    --iris-100:#e7e2ff; --iris-200:#cfc6ff; --iris-300:#b4a8ff; --iris-400:#9a8cf7; --iris-500:#7c6bf2; --iris-600:#6a58e8; --iris-700:#5744c4;
+    --lilac:#e9e3fb; --lilac-deep:#4e3f91; --rose:#f6dde2; --rose-deep:#8e3347;
+    --peach:#f8e3d3; --peach-deep:#8a4b23; --mint:#ddf3d8; --mint-deep:#2a6b45;
+    --sky:#dce8fa; --sky-deep:#2c5b93; --butter:#f8efc4; --butter-deep:#7a5d0c; --sand:#f2ede3;
+    --radius:28px; --radius-xl:32px; --radius-2xl:36px;
+    --shadow-2:0 10px 28px rgba(60,48,110,.10);
+    --shadow-3:0 22px 56px rgba(60,48,110,.16);
+    --shadow-4:0 36px 88px rgba(60,48,110,.22);
+    --font:"Instrument Sans","Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:var(--font); color:var(--ink-900);
+    background:
+      radial-gradient(900px 700px at 78% 8%, rgba(255,255,255,.55), transparent 62%),
+      radial-gradient(800px 620px at 16% 88%, rgba(246,221,226,.55), transparent 64%),
+      linear-gradient(180deg,var(--canvas-top) 0%,var(--canvas) 46%,var(--canvas-bottom) 100%);
+    min-height:100vh; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse 620px 380px at 88% 18%, rgba(255,255,255,.32), transparent 60%),
+      radial-gradient(ellipse 520px 420px at 8% 78%, rgba(246,221,226,.32), transparent 60%);
+  }
+  .orbits{position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5}
+  .orbits svg{width:100%;height:100%}
+  .page{position:relative; z-index:1; max-width:1440px; margin:0 auto; padding:44px 28px 80px}
+
+  /* ---------- header ---------- */
+  header.top{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:34px}
+  .brand{display:flex; align-items:center; gap:14px}
+  .brandmark{width:46px;height:46px;border-radius:16px;background:linear-gradient(145deg,#2a2438,#17151f);display:grid;place-items:center;box-shadow:0 12px 30px rgba(23,21,31,.25)}
+  .brandmark svg{width:24px;height:24px}
+  .brand h1{font-size:24px;font-weight:600;margin:0;letter-spacing:-.03em}
+  .brand p{margin:3px 0 0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-500);font-weight:700}
+  .head-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .pill-note{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;background:var(--glass-raised);border:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--ink-700);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:var(--shadow-2)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--mint-deep);box-shadow:0 0 0 4px rgba(42,107,69,.12)}
+  .toggle{cursor:pointer;border:0;font-family:inherit;height:38px;padding:0 18px;border-radius:999px;background:var(--ink-900);color:#f7f5fb;font-size:12.5px;font-weight:600;letter-spacing:.01em}
+  .toggle:active{transform:scale(.97)}
+
+  .intro{max-width:780px;margin:0 0 40px}
+  .intro .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink-600);margin:0 0 12px}
+  .intro h2{font-size:clamp(38px,5.2vw,64px);line-height:.96;letter-spacing:-.045em;font-weight:500;margin:0 0 18px}
+  .intro h2 em{font-style:normal;color:var(--iris-700)}
+  .intro p{font-size:16.5px;line-height:1.55;color:var(--ink-600);margin:0;max-width:640px}
+  .intro .rules{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .rule{font-size:12.5px;font-weight:600;color:var(--ink-700);background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.55);padding:8px 12px;border-radius:999px}
+
+  /* ---------- phones ---------- */
+  .phones{display:grid;grid-template-columns:repeat(3,minmax(0,340px));justify-content:center;gap:30px;margin:8px 0 54px;perspective:1400px}
+  .phone{
+    position:relative;width:100%;height:780px;border-radius:46px;padding:9px;
+    background:linear-gradient(160deg,rgba(255,255,255,.62),rgba(255,255,255,.22));
+    box-shadow:0 44px 90px rgba(52,38,96,.28), inset 0 1px 0 rgba(255,255,255,.8);
+    border:1px solid rgba(255,255,255,.65);
+    transform:rotateY(0deg); transition:transform .5s cubic-bezier(.16,1,.3,1);
+  }
+  .phone:hover{transform:translateY(-6px)}
+  .phone.lift-1{transform:translateY(-18px)} .phone.lift-1:hover{transform:translateY(-24px)}
+  .screen{
+    position:relative;height:100%;border-radius:38px;overflow:hidden;
+    background:linear-gradient(180deg,#e7e2f6 0%,#ddd7f0 52%,#d3cceb 100%);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);
+    padding:16px 16px 92px;
+  }
+  .screen::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(340px 260px at 88% 0%, rgba(255,255,255,.55), transparent 65%),
+      radial-gradient(300px 240px at 4% 92%, rgba(246,221,226,.45), transparent 68%);
+  }
+  .screen > *{position:relative}
+  .status{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;font-weight:600;color:var(--ink-700);padding:4px 8px 10px;letter-spacing:.02em}
+  .status .sig{display:flex;gap:4px;align-items:center}
+  .status i{display:inline-block;width:3px;height:6px;border-radius:1px;background:var(--ink-700);opacity:.8}
+
+  /* topbar */
+  .topbar{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .who{display:flex;align-items:center;gap:10px;min-width:0}
+  .avatar{width:42px;height:42px;border-radius:50%;flex:0 0 auto;position:relative;background:
+      radial-gradient(circle at 32% 28%, #fff 0 12%, transparent 13%),
+      radial-gradient(circle at 68% 66%, #e9c7d3 0 30%, transparent 31%),
+      linear-gradient(140deg,#d7ccfa,#a893e8 60%,#7c6bf2);
+    box-shadow:0 0 0 2px rgba(255,255,255,.7), 0 6px 14px rgba(80,60,140,.18)}
+  .avatar span{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:600;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.15)}
+  .who .hello{font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--ink-600);margin:0 0 2px}
+  .who .name{font-size:13px;font-weight:600;letter-spacing:-.01em;margin:0}
+  .top-actions{margin-left:auto;display:flex;gap:8px}
+  .icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--glass-raised);border:1px solid var(--border);box-shadow:0 6px 16px rgba(60,48,110,.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .icon-btn svg{width:18px;height:18px;stroke:var(--ink-700);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  /* display + chips */
+  .eyebrow{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--ink-600);margin:0 0 8px}
+  .display{font-size:38px;line-height:.98;letter-spacing:-.045em;font-weight:500;margin:0 0 16px}
+  .chips{display:flex;gap:8px;overflow:hidden;margin:0 -16px 18px;padding:2px 16px}
+  .chip{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px;border-radius:999px;font-size:12px;font-weight:600;color:var(--ink-700);background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .chip.active{background:var(--ink-900);color:#f7f5fb;border-color:transparent;box-shadow:0 8px 20px rgba(23,21,31,.2)}
+  .chip .f{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.22)}
+  .chip .f svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2}
+
+  /* hero */
+  .hero{position:relative;border-radius:var(--radius-xl);overflow:hidden;padding:18px;min-height:242px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;
+    background:linear-gradient(150deg,#cbbcf0 0%,#a78fe0 38%,#7c5bb5 100%);
+    box-shadow:var(--shadow-3);border:1px solid rgba(255,255,255,.35)}
+  .hero .art{position:absolute;inset:0;opacity:.95}
+  .hero .art svg{width:100%;height:100%}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,36,0) 18%,rgba(20,16,36,.72) 100%)}
+  .hero .body{position:relative}
+  .hero .kicker{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;opacity:.78;margin:0 0 6px}
+  .hero h3{font-size:23px;line-height:1.02;letter-spacing:-.035em;font-weight:500;margin:0 0 4px;max-width:230px}
+  .hero p{font-size:11.5px;line-height:1.4;margin:0;opacity:.8;max-width:220px}
+  .hero .bottom{display:flex;align-items:flex-end;gap:18px;margin-top:16px}
+  .stat{min-width:52px}
+  .stat b{display:block;font-family:var(--mono);font-size:22px;font-weight:500;line-height:1;letter-spacing:-.03em}
+  .stat span{display:block;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;opacity:.72;margin-top:4px;font-weight:600}
+  .hero .go{margin-left:auto;width:42px;height:42px;border-radius:50%;background:#17151f;display:grid;place-items:center;box-shadow:0 10px 22px rgba(0,0,0,.25)}
+  .hero .go svg{width:17px;height:17px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+  /* recent grid */
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:20px 0 10px}
+  .section-head h4{font-size:13px;font-weight:600;margin:0;letter-spacing:-.01em}
+  .section-head a{font-size:11px;font-weight:600;color:var(--iris-700);text-decoration:none}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .tile{position:relative;aspect-ratio:1/.78;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.4);box-shadow:var(--shadow-2)}
+  .tile.t1{background:linear-gradient(145deg,#dfd3ff,#a58de0 60%,#6f4aa8)}
+  .tile.t2{background:linear-gradient(145deg,#f7d9e1,#d9a6bb 58%,#9c6684)}
+  .tile::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 68% 30%,rgba(255,255,255,.75) 0 6%,transparent 7%),radial-gradient(circle at 30% 72%,rgba(255,255,255,.28) 0 16%,transparent 17%)}
+  .tile .tag{position:absolute;left:8px;bottom:8px;z-index:2;font-size:9px;font-weight:600;letter-spacing:.04em;background:rgba(23,21,31,.55);color:#fff;border-radius:999px;padding:4px 8px;backdrop-filter:blur(8px)}
+
+  /* nav */
+  .nav{position:absolute;left:14px;right:14px;bottom:14px;height:64px;border-radius:999px;display:flex;align-items:center;justify-content:space-around;padding:0 8px;
+    background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.75);box-shadow:var(--shadow-3);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
+  .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:8.5px;font-weight:600;color:var(--ink-600);min-width:44px}
+  .nav-item svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .nav-item.active{flex-direction:row;gap:8px;background:var(--ink-900);color:#f7f5fb;padding:9px 14px;border-radius:999px;box-shadow:0 8px 18px rgba(23,21,31,.22)}
+  .nav-item.active svg{width:17px;height:17px}
+  .nav-fab{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;width:52px;height:52px;border-radius:50%;background:var(--ink-900);display:grid;place-items:center;border:3px solid rgba(255,255,255,.7);box-shadow:0 12px 26px rgba(23,21,31,.3)}
+  .nav-fab svg{width:21px;height:21px;stroke:#fff;fill:none;stroke-width:1.7}
+
+  /* screen 2 */
+  .cover{position:relative;margin:-16px -16px 0;height:300px;overflow:hidden;border-radius:0 0 34px 34px}
+  .cover .art{position:absolute;inset:0}
+  .cover .art svg{width:100%;height:100%}
+  .cover .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,15,35,.02) 32%,rgba(20,15,35,.72) 100%)}
+  .cover .controls{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between}
+  .cover .circle{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.7);display:grid;place-items:center;box-shadow:0 8px 20px rgba(40,25,70,.18);backdrop-filter:blur(16px)}
+  .cover .circle svg{width:17px;height:17px;stroke:var(--ink-900);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .cover .group{display:flex;gap:8px}
+  .cover .caption{position:absolute;left:18px;bottom:20px;color:#fff}
+  .cover .caption .k{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;opacity:.75}
+  .cover .caption h3{font-size:30px;line-height:.98;letter-spacing:-.04em;font-weight:500;margin:6px 0 0;max-width:230px}
+  .chips.tight{margin-top:18px}
+  .list-card{background:var(--glass-raised);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+  .list-row{display:flex;align-items:center;gap:10px;padding:12px 13px;border-bottom:1px solid var(--hairline)}
+  .list-row:last-child{border-bottom:0}
+  .list-row .play{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.8);display:grid;place-items:center;flex:0 0 auto}
+  .list-row .play svg{width:12px;height:12px;fill:var(--ink-900);stroke:none;margin-left:1px}
+  .list-row .meta{min-width:0;flex:1}
+  .list-row .meta b{display:block;font-size:11.5px;font-weight:600;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .list-row .meta span{display:block;font-size:9px;color:var(--ink-500);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .list-row .dur{font-family:var(--mono);font-size:9.5px;color:var(--ink-600)}
+  .progress-card{display:flex;align-items:center;gap:14px;background:var(--glass-raised);border:1px solid var(--border);border-radius:24px;padding:13px;box-shadow:var(--shadow-2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);margin-top:10px}
+  .thumb{width:52px;height:62px;border-radius:16px;flex:0 0 auto;background:linear-gradient(145deg,#f2cbd6,#c78fa6 55%,#7d4a64);position:relative;overflow:hidden}
+  .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 60% 30%,rgba(255,255,255,.7) 0 12%,transparent 13%)}
+  .progress-card .txt b{display:block;font-size:11.5px;font-weight:600}
+  .progress-card .txt span{display:block;font-size:9px;color:var(--ink-500);margin-top:2px}
+  .ring{--p:72;position:relative;width:54px;height:54px;margin-left:auto;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--iris-600) calc(var(--p)*1%), rgba(23,21,31,.09) 0)}
+  .ring::before{content:"";width:42px;height:42px;border-radius:50%;background:var(--glass-raised);position:absolute}
+  .ring b{position:relative;font-family:var(--mono);font-size:12px;letter-spacing:-.04em}
+
+  /* screen 3 */
+  .cal{background:var(--glass-raised);border:1px solid var(--border);border-radius:26px;padding:14px;box-shadow:var(--shadow-2);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
+  .cal-head h3{font-size:19px;font-weight:500;letter-spacing:-.03em;margin:0}
+  .cal-head .plus{width:34px;height:34px;border-radius:50%;border:1px solid var(--hairline);display:grid;place-items:center;background:rgba(255,255,255,.6)}
+  .cal-head .plus svg{width:15px;height:15px;stroke:var(--ink-700);stroke-width:1.8;fill:none;stroke-linecap:round}
+  .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .day{text-align:center;padding:5px 0 6px;border-radius:16px}
+  .day span{display:block;font-size:8.5px;font-weight:600;color:var(--ink-500);letter-spacing:.02em}
+  .day b{display:block;font-size:11.5px;font-weight:600;margin-top:3px;letter-spacing:-.01em}
+  .day.sel{background:var(--ink-900);color:#f7f5fb;box-shadow:0 8px 18px rgba(23,21,31,.2)}
+  .day.sel span{color:rgba(247,245,251,.65)}
+  .day.today b{position:relative}
+  .day.today b::after{content:"";position:absolute;left:50%;bottom:-5px;width:3px;height:3px;border-radius:50%;background:var(--iris-600);transform:translateX(-50%)}
+  .timeline{margin-top:16px}
+  .tl{display:grid;grid-template-columns:34px 1fr;gap:8px}
+  .tl .hour{font-family:var(--mono);font-size:8.5px;color:var(--ink-400);padding-top:6px;text-align:right}
+  .tl .hour b{display:block;font-family:var(--font);font-size:10px;color:var(--ink-700);letter-spacing:-.01em}
+  .tl .rail{position:relative;display:flex;flex-direction:column;gap:9px;padding-bottom:12px}
+  .tl .rail::before{content:"";position:absolute;left:-13px;top:8px;bottom:0;border-left:1px dashed rgba(23,21,31,.12)}
+  .ev{border-radius:18px;padding:11px 12px;position:relative;border:1px solid rgba(255,255,255,.45);box-shadow:0 4px 14px rgba(60,48,110,.06)}
+  .ev .k{font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.65}
+  .ev b{display:block;font-size:11.5px;font-weight:600;margin-top:4px;letter-spacing:-.01em}
+  .ev span{display:block;font-size:9px;color:var(--ink-600);margin-top:2px}
+  .ev.rose{background:var(--rose)} .ev.mint{background:var(--mint)} .ev.lilac{background:var(--lilac)} .ev.sky{background:var(--sky)}
+  .ev .dotmark{position:absolute;right:10px;top:10px;width:4px;height:4px;border-radius:50%;background:rgba(23,21,31,.28)}
+
+  /* ---------- style guide ---------- */
+  .guide{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:8px}
+  .panel{background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.62);border-radius:30px;padding:24px;backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);box-shadow:var(--shadow-2)}
+  .panel h3{margin:0 0 4px;font-size:20px;letter-spacing:-.03em;font-weight:600}
+  .panel .sub{margin:0 0 18px;font-size:12.5px;color:var(--ink-600);line-height:1.5}
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .sw{border-radius:14px;height:54px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+  .sw small{position:absolute;left:8px;bottom:6px;font-family:var(--mono);font-size:8px;color:rgba(23,21,31,.7);background:rgba(255,255,255,.55);padding:2px 4px;border-radius:4px;letter-spacing:-.02em}
+  .sw.dark small{color:#fff;background:rgba(23,21,31,.4)}
+  .sw.ink{background:var(--ink-900)} .sw.iris{background:var(--iris-600)} .sw.lilac{background:var(--lilac)} .sw.rose{background:var(--rose)}
+  .sw.mint{background:var(--mint)} .sw.peach{background:var(--peach)} .sw.butter{background:var(--butter)} .sw.sky{background:var(--sky)}
+  .sw.glass{background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(255,255,255,.35));backdrop-filter:blur(10px)}
+  .type-demo{margin:0 0 12px}
+  .type-demo .t{font-size:38px;line-height:.96;letter-spacing:-.045em;font-weight:500;margin:0 0 4px}
+  .type-demo .s{font-size:13px;color:var(--ink-600);line-height:1.5;margin:0}
+  .spec{margin-top:16px;border-top:1px solid var(--hairline);padding-top:14px}
+  .spec-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:5px 0;font-size:11.5px;color:var(--ink-600)}
+  .spec-row b{font-weight:600;color:var(--ink-900)}
+  .spec-row code{font-family:var(--mono);font-size:9.5px;color:var(--ink-500)}
+  .comp-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px}
+  .btn{height:44px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;border:0;font-family:inherit}
+  .btn.primary{background:var(--ink-900);color:#f7f5fb;box-shadow:0 10px 24px rgba(23,21,31,.2)}
+  .btn.secondary{background:rgba(255,255,255,.72);border:1px solid var(--border);color:var(--ink-900)}
+  .btn.danger{background:var(--rose);color:var(--rose-deep);border:1px solid rgba(142,51,71,.14)}
+  .glass-card-demo{border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.78),rgba(255,255,255,.5));border:1px solid var(--border);padding:16px;box-shadow:var(--shadow-2);margin-top:12px}
+  .glass-card-demo .row{display:flex;align-items:center;gap:10px}
+  .glass-card-demo .mini{width:38px;height:38px;border-radius:13px;background:var(--mint);display:grid;place-items:center}
+  .glass-card-demo .mini svg{width:18px;height:18px;stroke:var(--mint-deep);fill:none;stroke-width:1.8}
+  .glass-card-demo b{font-size:12.5px;display:block}
+  .glass-card-demo span{font-size:10px;color:var(--ink-500)}
+  .ring-demo{display:flex;align-items:center;gap:16px}
+
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .principle{background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.55);border-radius:22px;padding:16px}
+  .principle b{display:block;font-size:12.5px;margin-bottom:4px;letter-spacing:-.01em}
+  .principle span{font-size:11px;line-height:1.45;color:var(--ink-600)}
+  .principle em{display:block;font-family:var(--mono);font-size:9px;color:var(--iris-700);font-style:normal;margin-bottom:8px;letter-spacing:.04em}
+
+  footer{margin-top:38px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;color:var(--ink-600)}
+  footer b{color:var(--ink-900)}
+  .files{display:flex;gap:8px;flex-wrap:wrap}
+  .files a{color:var(--ink-700);text-decoration:none;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.6);padding:6px 10px;border-radius:999px;font-size:10.5px;font-weight:600}
+
+  /* solid mode */
+  body.solid .panel, body.solid .pill-note, body.solid .icon-btn, body.solid .chip, body.solid .nav,
+  body.solid .list-card, body.solid .progress-card, body.solid .cal, body.solid .principle, body.solid .glass-card-demo{
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:var(--solid)!important;
+  }
+  body.solid .nav, body.solid .list-card, body.solid .progress-card, body.solid .cal{background:#fff!important}
+  body.solid .hero{box-shadow:0 18px 42px rgba(60,48,110,.18)}
+  body.solid .phone{background:#e9e5f3}
+  body.solid .screen{background:linear-gradient(180deg,#e9e4f4,#ddd7ef)}
+
+  @media (max-width:1180px){
+    .phones{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .guide{grid-template-columns:1fr}
+    .display{font-size:33px}
+  }
+  @media (max-width:980px){
+    .phones{grid-template-columns:minmax(0,360px);gap:28px}
+    .phone.lift-1{transform:none}
+    .principles{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="orbits" aria-hidden="true">
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
+    <path d="M-80 210 C 330 60, 720 420, 1520 160" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+    <path d="M-80 640 C 380 520, 760 800, 1520 560" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+    <path d="M1080 -40 C 980 300, 1240 520, 1180 940" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+  </svg>
+</div>
+
+<main class="page">
+  <header class="top">
+    <div class="brand">
+      <div class="brandmark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2.6 20 6v5.6c0 4.5-3.1 8.4-8 9.8-4.9-1.4-8-5.3-8-9.8V6l8-3.4Z" stroke="#cfc6ff" stroke-width="1.5"/><circle cx="12" cy="11" r="2.1" stroke="#cfc6ff" stroke-width="1.5"/><path d="M12 13.1v3" stroke="#cfc6ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h1>Vaultaire Aurora</h1>
+        <p>Design system · v1.0</p>
+      </div>
+    </div>
+    <div class="head-meta">
+      <span class="pill-note"><i class="dot"></i> Soft light. Hard encryption.</span>
+      <button class="toggle" id="modeToggle" aria-pressed="false">Glass</button>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p class="eyebrow">A calm surface over a zero-knowledge core</p>
+    <h2>Your vault should feel<br><em>like a place</em>, not a bunker.</h2>
+    <p>Lavender light, frosted cards, oversized type, and pastel data blocks — wrapped around pattern-only access, mandatory camera review, and a catalog that never exists. Every soft surface has a hard backing.</p>
+    <div class="rules">
+      <span class="rule">Glass never carries the only copy of information</span>
+      <span class="rule">Duress is pixel-identical</span>
+      <span class="rule">Secrets live on solid panels</span>
+    </div>
+  </section>
+
+  <section class="phones" aria-label="Three product mockups">
+
+    <!-- ============ PHONE 1 — HOME ============ -->
+    <div class="phone lift-1">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span class="sig"><i></i><i style="height:8px"></i><i style="height:10px"></i><span style="font-size:8px;margin-left:2px">5G</span></span></div>
+
+        <div class="topbar">
+          <div class="who">
+            <div class="avatar"><span>V</span></div>
+          </div>
+          <div class="top-actions">
+            <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></div>
+            <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+          </div>
+        </div>
+
+        <p class="eyebrow">Welcome back</p>
+        <h2 class="display">Vault</h2>
+
+        <div class="chips">
+          <span class="chip active"><span class="f"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 4v6M17 4v6M5 7h14l-1 13H6L5 7Z"/></svg></span>All</span>
+          <span class="chip">Photos</span>
+          <span class="chip">Videos</span>
+          <span class="chip">Docs</span>
+        </div>
+
+        <div class="hero">
+          <div class="art">
+            <svg viewBox="0 0 340 250" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="metal1" cx="35%" cy="28%" r="75%">
+                  <stop offset="0" stop-color="#f4e9ff"/><stop offset=".38" stop-color="#c9a9ea"/><stop offset=".72" stop-color="#8a5cba"/><stop offset="1" stop-color="#4c2d78"/>
+                </radialGradient>
+                <radialGradient id="metal2" cx="30%" cy="25%" r="80%">
+                  <stop offset="0" stop-color="#ffd9e4"/><stop offset=".45" stop-color="#d795b8"/><stop offset=".8" stop-color="#8d4c72"/><stop offset="1" stop-color="#55263f"/>
+                </radialGradient>
+                <linearGradient id="rod" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f7f1ff"/><stop offset=".5" stop-color="#b9a6dd"/><stop offset="1" stop-color="#6a4f96"/>
+                </linearGradient>
+                <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+              </defs>
+              <ellipse cx="250" cy="40" rx="130" ry="90" fill="#4b2f77" opacity=".35" filter="url(#soft)"/>
+              <circle cx="232" cy="86" r="76" fill="url(#metal1)"/>
+              <circle cx="286" cy="150" r="58" fill="url(#metal2)" opacity=".92"/>
+              <circle cx="148" cy="182" r="44" fill="url(#metal1)" opacity=".85"/>
+              <rect x="196" y="-30" width="26" height="320" rx="13" fill="url(#rod)" transform="rotate(24 209 130)" opacity=".85"/>
+              <rect x="86" y="-20" width="18" height="300" rx="9" fill="url(#rod)" transform="rotate(-18 95 130)" opacity=".55"/>
+              <circle cx="232" cy="60" r="18" fill="#fff" opacity=".25" filter="url(#soft)"/>
+            </svg>
+          </div>
+          <div class="scrim"></div>
+          <div class="body">
+            <p class="kicker">Collection · 2024</p>
+            <h3>Summer in Kyoto</h3>
+            <p>Quiet gardens, late trains, and the good camera.</p>
+            <div class="bottom">
+              <div class="stat"><b>248</b><span>Photos</span></div>
+              <div class="stat"><b>12</b><span>Videos</span></div>
+              <div class="stat"><b>2.1</b><span>GB</span></div>
+              <div class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head"><h4>Recent</h4><a href="#">See all</a></div>
+        <div class="tiles">
+          <div class="tile t1"><span class="tag">Gion · 4.2 MB</span></div>
+          <div class="tile t2"><span class="tag">0:24</span></div>
+        </div>
+
+        <div class="nav">
+          <div class="nav-item active"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="4"/><path d="M8 5V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M9 11h6"/></svg>Vault</div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="3.4"/><path d="M17 9h.01"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3.05V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.2.6.76 1 1.4 1H21a2 2 0 1 1 0 4h-.09c-.64 0-1.2.4-1.4 1Z"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PHONE 2 — COLLECTION ============ -->
+    <div class="phone">
+      <div class="screen" style="padding-top:0">
+        <div class="cover">
+          <div class="art">
+            <svg viewBox="0 0 340 330" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="c1" cx="38%" cy="25%" r="80%">
+                  <stop offset="0" stop-color="#ffe9f2"/><stop offset=".4" stop-color="#e3a9c2"/><stop offset=".76" stop-color="#a95c80"/><stop offset="1" stop-color="#5d2b42"/>
+                </radialGradient>
+                <radialGradient id="c2" cx="30%" cy="20%" r="85%">
+                  <stop offset="0" stop-color="#f3e7ff"/><stop offset=".5" stop-color="#c2a4e6"/><stop offset=".85" stop-color="#7d57ad"/><stop offset="1" stop-color="#452a66"/>
+                </radialGradient>
+                <linearGradient id="crod" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffffff"/><stop offset=".46" stop-color="#d7c8ee"/><stop offset="1" stop-color="#7b63a4"/>
+                </linearGradient>
+                <filter id="csoft"><feGaussianBlur stdDeviation="14"/></filter>
+              </defs>
+              <rect width="340" height="330" fill="#b9a3d9"/>
+              <ellipse cx="60" cy="60" rx="150" ry="110" fill="#e7c4d6" opacity=".55" filter="url(#csoft)"/>
+              <ellipse cx="280" cy="250" rx="140" ry="120" fill="#6e4c9e" opacity=".55" filter="url(#csoft)"/>
+              <circle cx="235" cy="98" r="86" fill="url(#c2)"/>
+              <circle cx="280" cy="220" r="64" fill="url(#c1)" opacity=".95"/>
+              <circle cx="96" cy="216" r="52" fill="url(#c2)" opacity=".8"/>
+              <rect x="212" y="-40" width="28" height="420" rx="14" fill="url(#crod)" transform="rotate(26 226 170)" opacity=".8"/>
+              <rect x="78" y="-30" width="18" height="380" rx="9" fill="url(#crod)" transform="rotate(-20 87 160)" opacity=".55"/>
+              <circle cx="235" cy="70" r="20" fill="#fff" opacity=".28" filter="url(#csoft)"/>
+            </svg>
+          </div>
+          <div class="shade"></div>
+          <div class="controls">
+            <div class="circle"><svg viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></svg></div>
+            <div class="group">
+              <div class="circle"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.4"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="19" r="2.4"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg></div>
+              <div class="circle"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+            </div>
+          </div>
+          <div class="caption">
+            <div class="k">Collection</div>
+            <h3>Kyoto, 2024</h3>
+          </div>
+        </div>
+
+        <div class="chips tight">
+          <span class="chip">All</span>
+          <span class="chip active">Photos</span>
+          <span class="chip">Videos</span>
+          <span class="chip">Docs</span>
+        </div>
+
+        <div class="list-card">
+          <div class="list-row">
+            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></div>
+            <div class="meta"><b>Fushimi Inari</b><span>Torii gates at first light</span></div>
+            <span class="dur">4.2 MB</span>
+          </div>
+          <div class="list-row">
+            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></div>
+            <div class="meta"><b>Gion at dusk</b><span>Lanterns and wooden facades</span></div>
+            <span class="dur">0:24</span>
+          </div>
+          <div class="list-row">
+            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></div>
+            <div class="meta"><b>Arashiyama</b><span>The bamboo path, early</span></div>
+            <span class="dur">6.8 MB</span>
+          </div>
+          <div class="list-row">
+            <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></div>
+            <div class="meta"><b>Kamo River</b><span>Slow water, north bank</span></div>
+            <span class="dur">1:12</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="thumb"></div>
+          <div class="txt">
+            <b>Backup</b>
+            <span>72% · Encrypted to Drive</span>
+            <span style="color:var(--mint-deep);font-weight:600">On track · 1.8 GB of 2.5 GB</span>
+          </div>
+          <div class="ring" style="--p:72"><b>72%</b></div>
+        </div>
+
+        <div class="nav" style="bottom:12px">
+          <div class="nav-item"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="4"/><path d="M8 5V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M9 11h6"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg></div>
+          <div class="nav-fab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="3.4"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3.05V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.2.6.76 1 1.4 1H21a2 2 0 1 1 0 4h-.09c-.64 0-1.2.4-1.4 1Z"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ PHONE 3 — TIMELINE ============ -->
+    <div class="phone">
+      <div class="screen" style="padding-bottom:96px">
+        <div class="status"><span>9:41</span><span class="sig"><i></i><i style="height:8px"></i><i style="height:10px"></i><span style="font-size:8px;margin-left:2px">5G</span></span></div>
+
+        <div class="cal">
+          <div class="cal-head">
+            <h3>June, 2026</h3>
+            <div class="plus"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
+          </div>
+          <div class="days">
+            <div class="day"><span>Mon</span><b>11</b></div>
+            <div class="day"><span>Tue</span><b>12</b></div>
+            <div class="day"><span>Wed</span><b>13</b></div>
+            <div class="day"><span>Thu</span><b>14</b></div>
+            <div class="day sel today"><span>Fri</span><b>15</b></div>
+            <div class="day"><span>Sat</span><b>16</b></div>
+            <div class="day"><span>Sun</span><b>17</b></div>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl">
+            <div class="hour"><b>10</b>AM</div>
+            <div class="rail">
+              <div class="ev rose">
+                <span class="dotmark"></span>
+                <div class="k">Camera</div>
+                <b>Imported 12 photos</b>
+                <span>From this device · encrypted on capture</span>
+              </div>
+              <div class="ev lilac">
+                <div class="k">Collection</div>
+                <b>Added to Kyoto, 2024</b>
+                <span>248 items · 2.1 GB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl">
+            <div class="hour"><b>11</b>AM</div>
+            <div class="rail">
+              <div class="ev mint">
+                <div class="k">Backup</div>
+                <b>Encrypted backup complete</b>
+                <span>Google Drive · 1.8 GB · 2 hours ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl">
+            <div class="hour"><b>1</b>PM</div>
+            <div class="rail">
+              <div class="ev sky">
+                <div class="k">Share</div>
+                <b>Shared album · read-only</b>
+                <span>Expires in 7 days · 2 of 3 opens</span>
+              </div>
+              <div class="ev lilac">
+                <div class="k">Sync</div>
+                <b>3 devices in sync</b>
+                <span>Last merge 4 minutes ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav" style="bottom:14px">
+          <div class="nav-item"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="4"/><path d="M8 5V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M9 11h6"/></svg></div>
+          <div class="nav-item active"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>Timeline</div>
+          <div class="nav-fab"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="4"/><circle cx="12" cy="13" r="3.4"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6M8.2 13.2l7.6 4.6"/></svg></div>
+          <div class="nav-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3.05V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.2.6.76 1 1.4 1H21a2 2 0 1 1 0 4h-.09c-.64 0-1.2.4-1.4 1Z"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ GUIDE ============ -->
+  <section class="guide">
+    <div class="panel">
+      <h3>Foundations</h3>
+      <p class="sub">The entire system is 4 surfaces, 7 pastels, one iris signal, and ink. If a screen needs a new color, it needs a different layout.</p>
+
+      <div class="swatches">
+        <div class="sw ink dark"><small>Ink 900</small></div>
+        <div class="sw iris dark"><small>Iris 600</small></div>
+        <div class="sw glass"><small>Glass 62%</small></div>
+        <div class="sw" style="background:var(--canvas)"><small>Canvas</small></div>
+        <div class="sw lilac"><small>Lilac</small></div>
+        <div class="sw rose"><small>Rose</small></div>
+        <div class="sw peach"><small>Peach</small></div>
+        <div class="sw mint"><small>Mint</small></div>
+        <div class="sw sky"><small>Sky</small></div>
+        <div class="sw butter"><small>Butter</small></div>
+        <div class="sw" style="background:var(--sand)"><small>Sand</small></div>
+        <div class="sw" style="background:linear-gradient(135deg,#d8ccff,#e9dff5,#f5d9e4)"><small>Hero</small></div>
+      </div>
+
+      <div class="spec">
+        <div class="spec-row"><b>Display</b><code>48 / 50 · −0.04em · 500</code></div>
+        <div class="spec-row"><b>Body</b><code>16 / 25 · 400</code></div>
+        <div class="spec-row"><b>Label</b><code>14 / 18 · 600</code></div>
+        <div class="spec-row"><b>Mono</b><code>30 / 36 · −0.01em</code></div>
+        <div class="spec-row"><b>Radius</b><code>card 28 · hero 32 · nav 36</code></div>
+        <div class="spec-row"><b>Spacing</b><code>20 screen · 12 gap · 28 section</code></div>
+        <div class="spec-row"><b>Glass</b><code>62% white · 24 blur · 1dp border</code></div>
+      </div>
+
+      <div class="spec">
+        <div class="type-demo">
+          <p class="t">Spatial memory,<br>quietly kept.</p>
+          <p class="s">A soft interface for hard promises. The display face is tight, humanist, and large enough to carry a screen without decoration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Components</h3>
+      <p class="sub">One ink primary per screen. Pastels are data, not status. Secrets always live on solid.</p>
+
+      <div class="comp-row">
+        <button class="btn primary">Keep capture</button>
+        <button class="btn secondary">Retake</button>
+        <button class="btn danger">Delete</button>
+      </div>
+
+      <div class="comp-row" style="margin-top:12px">
+        <span class="chip active">Photos</span>
+        <span class="chip">Videos</span>
+        <span class="chip">Docs</span>
+      </div>
+
+      <div class="glass-card-demo">
+        <div class="row">
+          <div class="mini"><svg viewBox="0 0 24 24"><path d="M4 12.5 9 17l11-11"/></svg></div>
+          <div style="flex:1"><b>Encrypted backup complete</b><span>1.8 GB · Google Drive · 2 hours ago</span></div>
+          <span class="chip" style="height:26px;padding:0 10px;font-size:10px">On</span>
+        </div>
+        <div class="row" style="margin-top:14px;gap:12px">
+          <div class="ring-demo">
+            <div class="ring" style="--p:72;position:relative"><b>72%</b></div>
+            <div><b style="font-size:12px">Vault storage</b><span>1.8 of 2.5 GB used</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card-demo" style="display:flex;gap:12px;align-items:center">
+        <div class="cal" style="padding:10px;border-radius:18px;flex:0 0 auto;box-shadow:none">
+          <div class="days" style="grid-template-columns:repeat(3,1fr);gap:4px">
+            <div class="day"><span>M</span><b>11</b></div>
+            <div class="day sel"><span>T</span><b>12</b></div>
+            <div class="day"><span>W</span><b>13</b></div>
+          </div>
+        </div>
+        <div><b style="font-size:12.5px">Calendar strip</b><span style="font-size:10.5px;color:var(--ink-500);display:block;margin-top:2px">Selected day = ink circle. Today = iris dot.</span></div>
+      </div>
+
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+        <svg width="96" height="96" viewBox="0 0 96 96" aria-label="Pattern grid example" style="flex:0 0 auto">
+          <defs><radialGradient id="pg" cx="40%" cy="30%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#efeaf9"/></radialGradient></defs>
+          <circle cx="48" cy="48" r="46" fill="url(#pg)" stroke="rgba(23,21,31,.06)"/>
+          <path d="M22 22 48 48 74 22 48 74" stroke="#6a58e8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="#c9c3e6">
+            <circle cx="22" cy="22" r="5"/><circle cx="35" cy="22" r="5"/><circle cx="48" cy="22" r="5"/><circle cx="61" cy="22" r="5"/><circle cx="74" cy="22" r="5"/>
+            <circle cx="22" cy="35" r="5"/><circle cx="35" cy="35" r="5"/><circle cx="48" cy="35" r="5"/><circle cx="61" cy="35" r="5"/><circle cx="74" cy="35" r="5"/>
+            <circle cx="22" cy="48" r="5"/><circle cx="35" cy="48" r="5"/><circle cx="61" cy="48" r="5"/><circle cx="74" cy="48" r="5"/>
+            <circle cx="22" cy="61" r="5"/><circle cx="35" cy="61" r="5"/><circle cx="48" cy="61" r="5"/><circle cx="61" cy="61" r="5"/><circle cx="74" cy="61" r="5"/>
+            <circle cx="22" cy="74" r="5"/><circle cx="35" cy="74" r="5"/><circle cx="61" cy="74" r="5"/><circle cx="74" cy="74" r="5"/>
+          </g>
+          <g fill="#6a58e8"><circle cx="22" cy="22" r="6"/><circle cx="48" cy="48" r="6"/><circle cx="74" cy="22" r="6"/><circle cx="48" cy="74" r="6"/></g>
+        </svg>
+        <div><b style="font-size:12.5px">Pattern grid</b><span style="font-size:10.5px;color:var(--ink-500);display:block;margin-top:2px;line-height:1.5">Unlock is neutral by design: known, unknown, and duress all resolve identically. Error styling is reserved for pattern creation.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles">
+    <div class="principle"><em>01 / SECURITY</em><b>Calm is a feature</b><span>No alarms, no padlocks, no fear. Confidence is what makes people keep protections on.</span></div>
+    <div class="principle"><em>02 / SURFACE</em><b>Glass is optional</b><span>Every frosted card has a solid fallback. Remove blur and the hierarchy still reads.</span></div>
+    <div class="principle"><em>03 / CONTENT</em><b>Chrome stays quiet</b><span>One iris signal. Pastels belong to data. The photos and documents carry the color.</span></div>
+    <div class="principle"><em>04 / MOTION</em><b>Explain, never decorate</b><span>Springs for touch, 240–440ms for transitions, 45s ambient drift. Zero motion on duress.</span></div>
+    <div class="principle"><em>05 / TRUTH</em><b>Indistinguishable where it matters</b><span>Duress, decoy, and unknown-pattern states are pixel-identical to ordinary ones.</span></div>
+    <div class="principle"><em>06 / ACCESS</em><b>Legible at every setting</b><span>AA contrast in Glass, Solid, Light, and Night; 200% type; 48dp targets; TalkBack first.</span></div>
+  </section>
+
+  <footer>
+    <div><b>Vaultaire Aurora</b> · soft light, hard encryption · tokens in <b>tokens.json</b></div>
+    <div class="files">
+      <a href="README.md">README</a><a href="foundations.md">Foundations</a><a href="components.md">Components</a>
+      <a href="screens.md">Screens</a><a href="accessibility.md">Accessibility</a><a href="feature-matrix.md">Feature matrix</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  const btn = document.getElementById('modeToggle');
+  btn.addEventListener('click', () => {
+    const solid = document.body.classList.toggle('solid');
+    btn.textContent = solid ? 'Solid' : 'Glass';
+    btn.setAttribute('aria-pressed', String(solid));
+  });
+</script>
+</body>
+</html>

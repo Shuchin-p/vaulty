@@ -1,0 +1,99 @@
+package com.vaultaire.android.sync.transport
+
+import android.app.Activity
+import android.content.Context
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
+import com.google.api.services.drive.DriveScopes
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+/**
+ * Manages Google Sign-In for Drive App Folder access.
+ *
+ * Handles:
+ * - Sign-in flow with DRIVE_APPDATA scope
+ */
+class DriveAuthManager(
+    private val activity: Activity,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) {
+    private var signInClient: GoogleSignInClient? = null
+    private var credential: GoogleAccountCredential? = null
+
+    fun initialize() {
+        val signInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestScopes(DriveScopes.DRIVE_APPDATA)
+            .requestEmail()
+            .build()
+        signInClient = GoogleSignIn.getClient(activity, signInOptions)
+    }
+
+    suspend fun signIn(): GoogleSignInAccount = withContext(ioDispatcher) {
+        // Check if already signed in
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+        if (account != null && hasDriveScope(account)) {
+            updateCredential(account)
+            return@withContext account
+        }
+
+        // Need interactive sign-in
+        val signInClient = this.signInClient
+            ?: throw IllegalStateException("Sign-in client not initialized")
+        val signInIntent = signInClient.signInIntent
+        
+        // Note: In real implementation, use ActivityResultContracts.StartActivityForResult
+        // This is a simplified version that expects caller to handle the result
+        throw UnsupportedOperationException("Use ActivityResultContracts.StartActivityForResult for sign-in flow. Intent: $signInIntent")
+    }
+
+    suspend fun refreshTokenIfNeeded(): GoogleAccountCredential = withContext(ioDispatcher) {
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+            ?: throw IllegalStateException("No signed-in account")
+
+        if (credential == null || credential!!.selectedAccount != account.account) {
+            updateCredential(account)
+        }
+
+        // Force token refresh
+        credential!!.token // This triggers refresh if expired
+        return@withContext credential!!
+    }
+
+    fun getCredential(): GoogleAccountCredential? {
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+        if (account == null) return null
+
+        if (credential == null || credential!!.selectedAccount != account.account) {
+            updateCredential(account)
+        }
+        return credential
+    }
+
+    private fun hasDriveScope(account: GoogleSignInAccount): Boolean {
+        return account.grantedScopes?.contains(SCOPE_DRIVE_APPDATA) == true
+    }
+
+    private fun updateCredential(account: GoogleSignInAccount) {
+        credential = GoogleAccountCredential.usingOAuth2(context, listOf(SCOPE_DRIVE_APPDATA))
+            .setSelectedAccount(account.account)
+    }
+
+    suspend fun signOut() = withContext(ioDispatcher) {
+        signInClient?.signOut()
+            ?.addOnSuccessListener { credential = null }
+            ?.addOnFailureListener { /* ignore */ }
+    }
+
+    suspend fun handleAuthError(): GoogleAccountCredential = withContext(ioDispatcher) {
+        // Revoke current token and force refresh
+        credential?.invalidateToken()
+        return refreshTokenIfNeeded()
+    }
+
+    private const val SCOPE_DRIVE_APPDATA = DriveScopes.DRIVE_APPDATA
+}
